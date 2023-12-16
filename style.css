@@ -31,7 +31,8 @@ input:focus {
     width: 180px;
     height: 180px;
     background-image: url('assets/sunny.png');
-    background-size: cover; 
+    background-size: contain;
+    background-repeat: no-repeat; 
     background-position: center;
     padding-right: 100px;
     margin-right: 50px;
@@ -49,6 +50,23 @@ input:focus {
     height: 60px;
     background-image: url('assets/wind.png');
     background-size: cover; 
+    background-position: center;
+}
+#ppt-icon {
+    width: 70px;
+    height: 70px;
+    background-image: url('assets/ppt-icon.png');
+    background-size: contain; 
+    background-position: right;
+    background-repeat: no-repeat;
+    margin-right: 10px;
+}
+#uv-icon {
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+    background-image: url('assets/uv.png');
+    background-size: contain; 
     background-position: center;
 }
 
@@ -86,7 +104,14 @@ input:focus {
 .row {
     display: flex;
     flex-direction: row; 
-    align-items: center; 
+    align-items: center;
+}
+.title-row {
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    width: 90%;
+    margin: 0px;
 }
 .main-row {
     display: flex;
@@ -146,4 +171,20 @@ input:focus {
     flex: 1;
     margin-right: 10px;
     
+}
+
+#convert-button {
+    background-image: url('assets/convert.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 0%;
+    top: 40%;
+    left: 97%;
+    bottom: 100%;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
 }
