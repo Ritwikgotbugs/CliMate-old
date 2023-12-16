@@ -1,0 +1,149 @@
+#body {
+    background-image: url('assets/bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#column {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+input:focus {
+    outline: none;
+}
+
+.data-box {
+    opacity: 1;
+    border: none;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+#icon {
+    width: 180px;
+    height: 180px;
+    background-image: url('assets/sunny.png');
+    background-size: cover; 
+    background-position: center;
+    padding-right: 100px;
+    margin-right: 50px;
+}
+
+#humid-icon {
+    width: 60px;
+    height: 60px;
+    background-image: url('assets/humidity.png');
+    background-size: cover; 
+    background-position: center;
+}
+#wind-icon {
+    width: 60px;
+    height: 60px;
+    background-image: url('assets/wind.png');
+    background-size: cover; 
+    background-position: center;
+}
+
+
+#temp {
+    font-size: 60px;
+    font-weight: bold;
+    font-family: 'Franklin Gothic light', 'Arial Narrow', Arial, sans-serif;
+}
+
+#location {
+    margin-top: 30px;
+    font-size: 30px;
+    font-family: 'Franklin Gothic medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#desc {
+    font-size: 30px;
+    padding-top: 20px;
+    font-family: 'Franklin Gothic medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.data {
+    font-size: 40px;
+    font-family: 'Franklin Gothic light', 'Arial Narrow', Arial, sans-serif;
+    
+    
+}
+.subtext {
+    font-size: 18px;
+    font-weight: lighter;
+    font-family: 'Franklin Gothic light', 'Arial Narrow', Arial, sans-serif;
+}
+
+.row {
+    display: flex;
+    flex-direction: row; 
+    align-items: center; 
+}
+.main-row {
+    display: flex;
+    z-index: 1;
+    flex-direction: row; 
+    align-items: center;
+    margin: 50px;
+    justify-content: space-between;
+}
+.column {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+}
+
+#transparent-box {
+    border-radius: 50px;
+    background-color: white;
+    opacity: 1;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    z-index: 2;
+}
+
+* {
+    position: relative;
+    z-index: 1;
+}
+
+
+.search-container {
+    display: flex;
+    align-items: center;
+    width: 300px; 
+    padding: 10px;
+}
+
+#search-icon {
+    background-color: transparent;
+    border: 1px solid black; /* Set the border width and color */
+    padding: 20px; /* Adjust the padding to add space between the borders and the icon */
+    margin-bottom: 10px;
+    cursor: pointer;
+    background-image: url('assets/search.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+#search-input{
+    border-radius: 20px;
+    padding: 16px;
+    margin-bottom: 16px;
+    border: none;
+    width: 300px;
+    justify-content: center;
+    flex: 1;
+    margin-right: 10px;
+    
+}
