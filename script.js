@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const searchInput = document.getElementById("search-input");
     const searchButton = document.getElementById("search-icon");
     const weatherIcon = document.getElementById("icon");
+    const convertButton = document.getElementById("convert-button");
     const wind = document.getElementById("wind-data");
     const humidity = document.getElementById("humid-data");
     const temperature = document.getElementById("temp");
@@ -26,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 break;
         
             case 'Partly cloudy':
-               weatherIcon.style.backgroundImage = 'url("assets/sunny.png")';
+               weatherIcon.style.backgroundImage = 'url("assets/partial-cloudy.png")';
                 break;
         
             case 'Cloudy':
@@ -90,11 +91,22 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     });
 
+    convertButton.addEventListener("click", (e) => {
+        if (temperature.innerHTML.includes("C")) {
+            temperature.innerHTML = (parseInt(temperature.innerHTML) * 9/5 + 32) + "°F";
+        } else {
+            temperature.innerHTML = ((parseInt(temperature.innerHTML) - 32) * 5/9) + "°C";
+        }
+    });
+
     searchInput.addEventListener("keypress", (e) => {
         if (e.key === "Enter") {
             e.preventDefault();
             searchButton.click();
         }
     })
+
+
     
 });
+
