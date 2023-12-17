@@ -16,6 +16,7 @@
     align-items: center;
     z-index: 3;
     position: fi;
+    width: 100%;
 }
 
 input:focus {
@@ -101,6 +102,8 @@ input:focus {
     font-size: 18px;
     font-weight: lighter;
     font-family: 'Franklin Gothic light', 'Arial Narrow', Arial, sans-serif;
+    transition: trasform 0.1s ease-in-out;
+    text-align: center;
 }
 
 .row {
@@ -121,7 +124,6 @@ input:focus {
     flex-direction: row; 
     align-items: center;
     margin: 50px;
-    justify-content: space-between;
 }
 .column {
     display: flex;
@@ -161,7 +163,19 @@ input:focus {
     background-image: url('assets/search.png');
     background-size: contain;
     background-repeat: no-repeat;
+    transition: transform 0.3s ease;
 }
+
+#search-icon:focus {
+    transform: scale(1.2); 
+}
+
+#search-icon:active {
+    transform: scale(0.8);
+}
+
+
+
 #search-input{
     border-radius: 20px;
     padding: 16px;
@@ -188,4 +202,38 @@ input:focus {
     cursor: pointer;
     border: none;
     background-color: transparent;
+    transition: trasform 0.3s ease;
+}
+
+
+#convert-button:active {
+    transform: scale(0.9);
+}
+
+#logo {
+    width: 80px;
+    height: 80px;
+    background-image: url('assets/icon.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-left: 10px;
+}
+
+#top-row {
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    width: 100%;
+    margin-top: 60px;
+    margin-left: 20px;
+}
+
+#name {
+    font-size: 60px;
+    font-weight: bold;
+    font-family: 'Franklin Gothic medium', 'Arial Narrow', Arial, sans-serif;
+    margin-left: 20px;
+    position: relative;
+    flex: 1;
 }

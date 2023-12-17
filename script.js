@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function() {
         wind.innerHTML = data.current.wind_kph;
         location.innerHTML = data.location.name + ", " + data.location.country;
         uvindex.innerHTML = data.current.uv;
-        precipitaton.innerHTML = data.current.precip_mm + 'mm' ;
+        precipitaton.innerHTML = data.current.precip_mm;
 
 
 
