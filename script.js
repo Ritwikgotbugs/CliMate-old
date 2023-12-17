@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const location = document.getElementById("location");
     const uvindex = document.getElementById("uv-index");
     const precipitaton = document.getElementById("ppt");
-    const body = document.getElementById("body");
+    const box= document.getElementById("transparent-box");
 
     const setWeatherDetails = (data) => {
         desc.innerHTML = data.current.condition.text;
@@ -86,6 +86,7 @@ document.addEventListener("DOMContentLoaded", function() {
             })
             .then(data => {
                 setWeatherDetails(data);
+                animateTemperature();
             })
             .catch(error => console.log(error))
     }
@@ -112,6 +113,14 @@ document.addEventListener("DOMContentLoaded", function() {
             searchButton.click();
         }
     })
+
+    function animateTemperature() {
+        box.style.animation = 'fadeIn 0.5s ease-in-out';
+    }
+    
+    box.addEventListener('animationend', () => {
+        box.style.animation = 'none';
+    });
 
 
     

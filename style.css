@@ -84,6 +84,7 @@ input:focus {
     margin-top: 30px;
     font-size: 30px;
     font-family: 'Franklin Gothic medium', 'Arial Narrow', Arial, sans-serif;
+    flex: 1;
 }
 
 #desc {
@@ -117,6 +118,7 @@ input:focus {
     align-items: center;
     width: 90%;
     margin: 0px;
+    flex: 1;
 }
 .main-row {
     display: flex;
@@ -137,6 +139,19 @@ input:focus {
     opacity: 1;
     justify-content: center;
     align-items: center;
+    animation: fadeIn 1s ease-in-out;
+
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px)
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 * {
