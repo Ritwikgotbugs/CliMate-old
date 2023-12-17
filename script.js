@@ -10,6 +10,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const temperature = document.getElementById("temp");
     const desc = document.getElementById("desc");
     const location = document.getElementById("location");
+    const uvindex = document.getElementById("uv-index");
+    const precipitaton = document.getElementById("ppt");
 
     const setWeatherDetails = (data) => {
         desc.innerHTML = data.current.condition.text;
@@ -17,6 +19,8 @@ document.addEventListener("DOMContentLoaded", function() {
         humidity.innerHTML = data.current.humidity + "%";
         wind.innerHTML = data.current.wind_kph;
         location.innerHTML = data.location.name + ", " + data.location.country;
+        uvindex.innerHTML = data.current.uv;
+        precipitaton.innerHTML = data.current.precip_mm + ' mm';
         switch (data.current.condition.text) {
             case 'Sunny':
                weatherIcon.style.backgroundImage = 'url("assets/sunny.png")';
@@ -95,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (temperature.innerHTML.includes("C")) {
             temperature.innerHTML = (parseInt(temperature.innerHTML) * 9/5 + 32) + "°F";
         } else {
-            temperature.innerHTML = ((parseInt(temperature.innerHTML) - 32) * 5/9) + "°C";
+            temperature.innerHTML= (Math.round((parseInt(temperature.innerHTML) - 32) * 5/9)) + "°C";
         }
     });
 
