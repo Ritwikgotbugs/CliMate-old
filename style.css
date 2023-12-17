@@ -1,8 +1,8 @@
 #body {
-    background-image: url('assets/bg.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    background-image: url('assets/bg.jpg');
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,7 +13,9 @@
 #column {
     display: flex;
     flex-direction: column;
-    align-items: center; 
+    align-items: center;
+    z-index: 3;
+    position: fi;
 }
 
 input:focus {
@@ -129,18 +131,15 @@ input:focus {
 
 #transparent-box {
     border-radius: 50px;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.4);
     opacity: 1;
-    position: relative;
     justify-content: center;
     align-items: center;
-    display: flex;
-    z-index: 2;
 }
 
 * {
     position: relative;
-    z-index: 1;
+    z-index: 3;
 }
 
 
@@ -153,9 +152,11 @@ input:focus {
 
 #search-icon {
     background-color: transparent;
-    border: 1px solid black; /* Set the border width and color */
-    padding: 20px; /* Adjust the padding to add space between the borders and the icon */
-    margin-bottom: 10px;
+    border: none;
+    width: 10px;
+    height: 10px;
+    padding: 10px;
+    margin-bottom: 15px;
     cursor: pointer;
     background-image: url('assets/search.png');
     background-size: contain;
@@ -177,12 +178,12 @@ input:focus {
     background-image: url('assets/convert.png');
     background-size: contain;
     background-repeat: no-repeat;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     position: absolute;
     right: 0%;
     top: 40%;
-    left: 97%;
+    left: 95%;
     bottom: 100%;
     cursor: pointer;
     border: none;
