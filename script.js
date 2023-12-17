@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const location = document.getElementById("location");
     const uvindex = document.getElementById("uv-index");
     const precipitaton = document.getElementById("ppt");
+    const body = document.getElementById("body");
 
     const setWeatherDetails = (data) => {
         desc.innerHTML = data.current.condition.text;
@@ -20,7 +21,10 @@ document.addEventListener("DOMContentLoaded", function() {
         wind.innerHTML = data.current.wind_kph;
         location.innerHTML = data.location.name + ", " + data.location.country;
         uvindex.innerHTML = data.current.uv;
-        precipitaton.innerHTML = data.current.precip_mm + ' mm';
+        precipitaton.innerHTML = data.current.precip_mm + 'mm' ;
+
+
+
         switch (data.current.condition.text) {
             case 'Sunny':
                weatherIcon.style.backgroundImage = 'url("assets/sunny.png")';
@@ -68,13 +72,12 @@ document.addEventListener("DOMContentLoaded", function() {
             default:
                weatherIcon.style.backgroundImage = 'url("assets/sunny.png")';
                 break;
-        }
-        
+        }        
         
     }
 
     const callAPI = (id) => {
-        fetch(`https://api.weatherapi.com/v1/current.json?key=${id}&q=${searchInput.value}&aqi=no`)
+        fetch(`https://api.weatherapi.com/v1/forecast.json?key=${id}&q=${searchInput.value}&days=1&aqi=no&alerts=no`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`Request failed with status ${response.status}`)
