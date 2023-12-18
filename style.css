@@ -1,10 +1,10 @@
 @font-face {
     font-family: 'kRegularFont';
-    src: url('assets/Outfit/static/Outfit-Regular.ttf');
+    src: url('assets/Outfit/fonts/Outfit-Regular.ttf');
 }
 @font-face {
     font-family: 'kBoldFont';
-    src: url('assets/Outfit/static/Outfit-Bold.ttf');
+    src: url('assets/Outfit/fonts/Outfit-Bold.ttf');
 }
 
 #body {
