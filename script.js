@@ -83,7 +83,8 @@ document.addEventListener("DOMContentLoaded", function() {
             .then(response => {
                 if (!response.ok) {
                     snackbar.className = "show";
-                    setTimeout(function(){ snackbar.innerHTML='Please check the spelling'}, 3000);
+                    setTimeout(function(){ snackbar.className = snackbar.className.replace("show", ""); }, 3000);
+
                 }
                 return response.json()
             })
