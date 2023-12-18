@@ -8,10 +8,8 @@
 }
 
 #body {
-    background-size: cover;
     background-repeat: no-repeat;
-    background-position: center;
-    background-image: url('assets/bg.jpg');
+    background: linear-gradient(rgb(112, 215, 255), rgb(22, 31, 160));
     display: flex;
     justify-content: start;
     align-items: start;
@@ -35,16 +33,17 @@ input:focus {
 .data-box {
     border: none;
     margin: 10px;
+    flex: 1;
 }
 
 #icon {
-    width: 180px;
-    height: 180px;
+    width: 200px;
+    height: 200px;
     background-image: url('assets/sunny.png');
     background-size: contain;
     background-repeat: no-repeat; 
     background-position: center;
-    margin-right: 30px;
+    align-items: center;
 }
 
 #humid-icon {
@@ -66,7 +65,7 @@ input:focus {
     height: 70px;
     background-image: url('assets/ppt-icon.png');
     background-size: contain; 
-    background-position: right;
+    background-position: center;
     background-repeat: no-repeat;
 }
 #uv-icon {
@@ -80,7 +79,7 @@ input:focus {
 
 
 #temp {
-    font-size: 60px;
+    font-size: 50px;
     font-weight: bold;
     font-family: kBoldFont;
 }
@@ -92,19 +91,19 @@ input:focus {
 }
 
 #desc {
-    font-size: 30px;
-    padding-top: 20px;
+    font-size: 25px;
+    padding-top: 10px;
     font-family:  kRegularFont;
 }
 
 .data {
-    font-size: 40px;
+    font-size: 30px;
     font-family: kRegularFont;
     
     
 }
 .subtext {
-    font-size: 18px;
+    font-size: 15px;
     font-weight: lighter;
     font-family: kRegularFont;
     transition: trasform 0.1s ease-in-out;
@@ -115,6 +114,7 @@ input:focus {
     display: flex;
     flex-direction: row; 
     align-items: center;
+    flex: 1;
 }
 .title-row {
     display: flex;
@@ -129,8 +129,9 @@ input:focus {
     display: flex;
     flex-direction: row; 
     align-items: center;
-    margin: 50px;
-    justify-content: space-between;
+    width: 100%;
+    justify-content: space-around;
+    margin: 30px;
 
 }
 .column {
@@ -147,8 +148,8 @@ input:focus {
     justify-content: center;
     align-items: center;
     animation: fadeIn 1s ease-in-out;
-    width: 50%;
-    height: 65%;
+    width: 60%;
+    max-height: fit-content;
 
 }
 
@@ -247,7 +248,7 @@ input:focus {
 }
 
 #name {
-    font-size: 60px;
+    font-size: 50px;
     font-weight: bold;
     font-family:  'Outift', '';
     margin-left: 20px;
@@ -271,11 +272,67 @@ input:focus {
     }
 
     #icon {
-        margin-bottom: 20px;
+        margin-bottom: 10px;
+        margin-right: 0px;
+        width: 150px;
+        height: 150px;
+    }
+
+    #name{
+        margin-left: 0px;
+        font-size: 40px;
+    }
+    #logo {
+        margin-left: 0px;
+        height: 100px;
+    }
+
+    #location {
+        font-size: 25px;
+    }
+
+    .title-row {
+        width: 90%;
+    }
+   
+    #transparent-box {
+        width: 90%;
+        max-height: fit-content;
+    }
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    
+    #navbar {
+        display: flex;
+        flex-direction: row; 
+        align-items: center;
+        padding: 20px;
+    }
+
+    .main-row {
+       flex-direction: column;
+       display: flex;
+       margin: 30px;
+    }
+
+    #icon {
+        margin-bottom: 30px;
         margin-right: 0px;
     }
 
-    #name , #logo {
-        margin-left: 0px;
+    #name, #logo {
+        margin-left: 10px;
+    }
+
+    .search-container {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    #transparent-box {
+        width: 90%;
+        max-height: fit-content;
     }
 }
