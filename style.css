@@ -1,3 +1,12 @@
+@font-face {
+    font-family: 'kRegularFont';
+    src: url('assets/Outfit/static/Outfit-Regular.ttf');
+}
+@font-face {
+    font-family: 'kBoldFont';
+    src: url('assets/Outfit/static/Outfit-Bold.ttf');
+}
+
 #body {
     background-size: cover;
     background-repeat: no-repeat;
@@ -77,32 +86,32 @@ input:focus {
 #temp {
     font-size: 60px;
     font-weight: bold;
-    font-family: 'Franklin Gothic light', 'Arial Narrow', Arial, sans-serif;
+    font-family: kBoldFont;
 }
 
 #location {
     margin-top: 30px;
     font-size: 30px;
-    font-family: 'Franklin Gothic medium', 'Arial Narrow', Arial, sans-serif;
+    font-family:  kRegularFont;
     flex: 1;
 }
 
 #desc {
     font-size: 30px;
     padding-top: 20px;
-    font-family: 'Franklin Gothic medium', 'Arial Narrow', Arial, sans-serif;
+    font-family:  kRegularFont;
 }
 
 .data {
     font-size: 40px;
-    font-family: 'Franklin Gothic light', 'Arial Narrow', Arial, sans-serif;
+    font-family: kRegularFont;
     
     
 }
 .subtext {
     font-size: 18px;
     font-weight: lighter;
-    font-family: 'Franklin Gothic light', 'Arial Narrow', Arial, sans-serif;
+    font-family: kRegularFont;
     transition: trasform 0.1s ease-in-out;
     text-align: center;
 }
@@ -217,7 +226,7 @@ input:focus {
     cursor: pointer;
     border: none;
     background-color: transparent;
-    transition: trasform 0.3s ease;
+    transition: trasform 0.3s ease-in;
 }
 
 
@@ -247,8 +256,8 @@ input:focus {
 #name {
     font-size: 60px;
     font-weight: bold;
-    font-family: 'Franklin Gothic medium', 'Arial Narrow', Arial, sans-serif;
+    font-family:  'Outift', '';
     margin-left: 20px;
     position: relative;
-    flex: 1;
+    font-family: kBoldFont;
 }
