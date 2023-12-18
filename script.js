@@ -13,6 +13,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const uvindex = document.getElementById("uv-index");
     const precipitaton = document.getElementById("ppt");
     const box= document.getElementById("transparent-box");
+    const snackbar= document.getElementById("snackbar");
+
 
     const setWeatherDetails = (data) => {
         desc.innerHTML = data.current.condition.text;
@@ -80,7 +82,8 @@ document.addEventListener("DOMContentLoaded", function() {
         fetch(`https://api.weatherapi.com/v1/forecast.json?key=${id}&q=${searchInput.value}&days=1&aqi=no&alerts=no`)
             .then(response => {
                 if (!response.ok) {
-                    throw new Error(`Request failed with status ${response.status}`)
+                    snackbar.className = "show";
+                    setTimeout(function(){ snackbar.innerHTML='Please check the spelling'}, 3000);
                 }
                 return response.json()
             })
@@ -93,7 +96,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     searchButton.addEventListener("click", (e) => {
     if (searchInput.value == "") {
-        alert("Please Enter City Name.");
+        snackbar.className = "show";
+        setTimeout(function(){ snackbar.className = snackbar.className.replace("show", ""); }, 3000);
     } else {
         callAPI(id);
     }

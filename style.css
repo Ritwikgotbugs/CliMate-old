@@ -301,8 +301,7 @@ input:focus {
     }
 }
 
-
-@media only screen and (min-width: 768px) and (max-width: 1023px) {
+@media only screen and (min-width: 600px) and (max-width: 1023px) {
     
     #navbar {
         display: flex;
@@ -336,3 +335,44 @@ input:focus {
         max-height: fit-content;
     }
 }
+
+
+#snackbar {
+    visibility: hidden; 
+    min-width: 250px; 
+    margin-left: -125px; 
+    background-color: #212121; 
+    color: #fff; 
+    text-align: center; 
+    padding: 16px;
+    position: fixed; 
+    z-index: 4; 
+    left: 50%; 
+    bottom: 30px; 
+    border-radius: 30px;
+    opacity: 1;
+    font-family: kRegularFont;
+  }
+  
+  
+  #snackbar.show {
+    visibility: visible; 
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  }
+  
+ 
+  @keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+  }
+  
+  @keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+  }
