@@ -8,8 +8,7 @@
 }
 
 #body {
-    background-repeat: no-repeat;
-    background: linear-gradient(rgb(112, 215, 255), rgb(22, 31, 160));
+    background: linear-gradient(rgb(112, 215, 255), rgb(22, 31, 160)) no-repeat fixed center;
     display: flex;
     justify-content: start;
     align-items: start;
@@ -313,7 +312,6 @@ input:focus {
         margin: 0;
         padding: 0;
     }
-    
     #navbar {
         display: flex;
         flex-direction: row; 
