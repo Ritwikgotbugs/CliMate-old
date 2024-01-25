@@ -1,10 +1,10 @@
 @font-face {
     font-family: 'kRegularFont';
-    src: url('assets/Outfit/fonts/Outfit-Regular.ttf');
+    src: url('../assets/Outfit/fonts/Outfit-Regular.ttf');
 }
 @font-face {
     font-family: 'kBoldFont';
-    src: url('assets/Outfit/fonts/Outfit-Bold.ttf');
+    src: url('../assets/Outfit/fonts/Outfit-Bold.ttf');
 }
 
 #body {
@@ -38,7 +38,7 @@ input:focus {
 #icon {
     width: 200px;
     height: 200px;
-    background-image: url('assets/sunny.png');
+    background-image: url('../assets/sunny.png');
     background-size: contain;
     background-repeat: no-repeat; 
     background-position: center;
@@ -48,21 +48,21 @@ input:focus {
 #humid-icon {
     width: 60px;
     height: 60px;
-    background-image: url('assets/humidity.png');
+    background-image: url('../assets/humidity.png');
     background-size: cover; 
     background-position: center;
 }
 #wind-icon {
     width: 60px;
     height: 60px;
-    background-image: url('assets/wind.png');
+    background-image: url('../assets/wind.png');
     background-size: cover; 
     background-position: center;
 }
 #ppt-icon {
     width: 70px;
     height: 70px;
-    background-image: url('assets/ppt-icon.png');
+    background-image: url('../assets/ppt-icon.png');
     background-size: contain; 
     background-position: center;
     background-repeat: no-repeat;
@@ -71,7 +71,7 @@ input:focus {
     width: 60px;
     height: 60px;
     margin-right: 10px;
-    background-image: url('assets/uv.png');
+    background-image: url('../assets/uv.png');
     background-size: contain; 
     background-position: center;
 }
@@ -184,7 +184,7 @@ input:focus {
     height: 10px;
     padding: 10px;
     cursor: pointer;
-    background-image: url('assets/search.png');
+    background-image: url('../assets/search.png');
     background-size: contain;
     background-repeat: no-repeat;
     transition: transform 0.3s ease;
@@ -211,7 +211,7 @@ input:focus {
 }
 
 #convert-button {
-    background-image: url('assets/convert.png');
+    background-image: url('../assets/convert.png');
     background-size: contain;
     background-repeat: no-repeat;
     width: 40px;
@@ -231,7 +231,7 @@ input:focus {
 #logo {
     width: 80px;
     height: 80px;
-    background-image: url('assets/icon.png');
+    background-image: url('../assets/icon.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -362,7 +362,22 @@ input:focus {
     opacity: 1;
     font-family: kRegularFont;
   }
+
+ #history {
+    width: 35px;
+    height: 35px;
+    background-image: url('../assets/history.png');
+    background-size: contain;
+    background-repeat: no-repeat; 
+    background-position: center;
+    align-items: center;
+    cursor: pointer;
+  }
   
+    #history:active {
+        transform: scale(0.9);
+        
+    }
   
   #snackbar.show {
     visibility: visible; 

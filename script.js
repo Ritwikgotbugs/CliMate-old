@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const precipitaton = document.getElementById("ppt");
     const box= document.getElementById("transparent-box");
     const snackbar= document.getElementById("snackbar");
-
+    const history= document.getElementById("history");
 
     const setWeatherDetails = (data) => {
         desc.innerHTML = data.current.condition.text;
@@ -29,50 +29,50 @@ document.addEventListener("DOMContentLoaded", function() {
 
         switch (data.current.condition.text) {
             case 'Sunny':
-               weatherIcon.style.backgroundImage = 'url("assets/sunny.png")';
+               weatherIcon.style.backgroundImage = 'url("../assets/sunny.png")';
                 break;
         
             case 'Clear':
-               weatherIcon.style.backgroundImage = 'url("assets/clear.png")';
+               weatherIcon.style.backgroundImage = 'url("../assets/clear.png")';
                 break;
         
             case 'Partly cloudy':
-               weatherIcon.style.backgroundImage = 'url("assets/partial-cloudy.png")';
+               weatherIcon.style.backgroundImage = 'url("../assets/partial-cloudy.png")';
                 break;
         
             case 'Cloudy':
-               weatherIcon.style.backgroundImage = 'url("assets/cloudy.png")';
+               weatherIcon.style.backgroundImage = 'url("../assets/cloudy.png")';
                 break;
         
             case 'Overcast':
-               weatherIcon.style.backgroundImage = 'url("assets/overcast.png")';
+               weatherIcon.style.backgroundImage = 'url("../assets/overcast.png")';
                 break;
         
             case 'Mist':
             case 'Fog':
-               weatherIcon.style.backgroundImage = 'url("assets/fog.png")';
+               weatherIcon.style.backgroundImage = 'url("../assets/fog.png")';
                 break;
         
             case 'Rain':
             case 'Light rain':
             case 'Moderate rain':
             case 'Heavy rain':
-               weatherIcon.style.backgroundImage = 'url("assets/rainy.png")';
+               weatherIcon.style.backgroundImage = 'url("../assets/rainy.png")';
                 break;
         
             case 'Snow':
             case 'Light snow':
             case 'Moderate snow':
             case 'Heavy snow':
-               weatherIcon.style.backgroundImage = 'url("assets/snow.png")';
+               weatherIcon.style.backgroundImage = 'url("../assets/snow.png")';
                 break;
         
             case 'Thunderstorm':
-               weatherIcon.style.backgroundImage = 'url("assets/thunderstorm.png")';
+               weatherIcon.style.backgroundImage = 'url("../assets/thunderstorm.png")';
                 break;
         
             default:
-               weatherIcon.style.backgroundImage = 'url("assets/sunny.png")';
+               weatherIcon.style.backgroundImage = 'url("../assets/sunny.png")';
                 break;
         }        
         
@@ -127,6 +127,20 @@ document.addEventListener("DOMContentLoaded", function() {
         box.style.animation = 'none';
     });
 
+
+    history.addEventListener("click", function() {
+        // Dynamically create a script element
+        const newScript = document.createElement('script');
+    
+        // Set the source attribute to the path of your history.js file
+        newScript.src = '/history.js';
+    
+        // Append the script element to the document head
+        document.head.appendChild(newScript);
+    
+        // Change the window location to "/history"
+        window.location.href = "/history";
+      });
 
     
 });
