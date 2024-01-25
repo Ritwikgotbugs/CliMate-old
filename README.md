@@ -19,7 +19,7 @@ CliMate
 - [x] - Responsivity for different screen sizes
       
 ## Deployments
-https://one-climate.netlify.app/
+https://one-climate.netlify.app/ (under improvements)
 
 ## Preview
 <h3>Laptop and Mobile preview</h3>
