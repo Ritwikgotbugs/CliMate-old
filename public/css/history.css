@@ -1,0 +1,79 @@
+@font-face {
+    font-family: 'kRegularFont';
+    src: url('../assets/Outfit/fonts/Outfit-Regular.ttf');
+}
+@font-face {
+    font-family: 'kBoldFont';
+    src: url('../assets/Outfit/fonts/Outfit-Bold.ttf');
+}
+
+
+#body {
+    background: linear-gradient(rgb(112, 215, 255), rgb(22, 31, 160)) no-repeat fixed center;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    min-height: 100vh;
+    margin: 20px;
+}
+
+#title {
+    font-size: 50px;
+    font-weight: bold;
+    position: relative;
+    font-family: kBoldFont;
+    margin-bottom: 20px;
+
+}
+
+#box {
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.4);
+    width: 30%;
+    max-height: fit-content;
+    padding: 25px;
+    margin-top: 10px;
+
+}
+
+#column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+#row {
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    justify-content: space-between;
+}
+
+#text-data {
+    font-size: 20px;
+    font-weight: lighter;
+    font-family: kRegularFont;
+    text-align: start;
+    margin-bottom: 8px;
+}
+
+#icon {
+    width: 50px;
+    height: 50px;
+    background-image: url('../assets/sunny.png');
+    background-size: contain;
+    background-repeat: no-repeat; 
+    background-position: center;
+    align-items: center;
+    padding-right: 30px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    justify-content: space-between;
+}
+

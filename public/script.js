@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function() {
         uvindex.innerHTML = data.current.uv;
         precipitaton.innerHTML = data.current.precip_mm;
 
-
+        
 
         switch (data.current.condition.text) {
             case 'Sunny':
@@ -127,20 +127,9 @@ document.addEventListener("DOMContentLoaded", function() {
         box.style.animation = 'none';
     });
 
-
-    history.addEventListener("click", function() {
-        // Dynamically create a script element
-        const newScript = document.createElement('script');
-    
-        // Set the source attribute to the path of your history.js file
-        newScript.src = '/history.js';
-    
-        // Append the script element to the document head
-        document.head.appendChild(newScript);
-    
-        // Change the window location to "/history"
-        window.location.href = "/history";
-      });
+    history.addEventListener("click", (e) => {
+        window.location.href = "/public/views/history.html";
+    });
 
     
 });
