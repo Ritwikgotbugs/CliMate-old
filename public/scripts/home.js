@@ -24,76 +24,92 @@ document.addEventListener("DOMContentLoaded", function() {
         location.innerHTML = data.location.name + ", " + data.location.country;
         uvindex.innerHTML = data.current.uv;
         precipitaton.innerHTML = data.current.precip_mm;
-
-        
-
         switch (data.current.condition.text) {
             case 'Sunny':
-               weatherIcon.style.backgroundImage = 'url("../assets/sunny.png")';
+               weatherIcon.style.backgroundImage = 'url("/public/assets/sunny.png")';
                 break;
         
             case 'Clear':
-               weatherIcon.style.backgroundImage = 'url("../assets/clear.png")';
+               weatherIcon.style.backgroundImage = 'url("/public/assets/clear.png")';
                 break;
         
             case 'Partly cloudy':
-               weatherIcon.style.backgroundImage = 'url("../assets/partial-cloudy.png")';
+               weatherIcon.style.backgroundImage = 'url("/public/assets/partial-cloudy.png")';
                 break;
         
             case 'Cloudy':
-               weatherIcon.style.backgroundImage = 'url("../assets/cloudy.png")';
+               weatherIcon.style.backgroundImage = 'url("/public/assets/cloudy.png")';
                 break;
         
             case 'Overcast':
-               weatherIcon.style.backgroundImage = 'url("../assets/overcast.png")';
+               weatherIcon.style.backgroundImage = 'url("/public/assets/overcast.png")';
                 break;
         
             case 'Mist':
             case 'Fog':
-               weatherIcon.style.backgroundImage = 'url("../assets/fog.png")';
+               weatherIcon.style.backgroundImage = 'url("/public/assets/fog.png")';
                 break;
         
             case 'Rain':
             case 'Light rain':
             case 'Moderate rain':
             case 'Heavy rain':
-               weatherIcon.style.backgroundImage = 'url("../assets/rainy.png")';
+               weatherIcon.style.backgroundImage = 'url("/public/assets/rainy.png")';
                 break;
         
             case 'Snow':
             case 'Light snow':
             case 'Moderate snow':
             case 'Heavy snow':
-               weatherIcon.style.backgroundImage = 'url("../assets/snow.png")';
+               weatherIcon.style.backgroundImage = 'url("/public/assets/snow.png")';
                 break;
         
             case 'Thunderstorm':
-               weatherIcon.style.backgroundImage = 'url("../assets/thunderstorm.png")';
+               weatherIcon.style.backgroundImage = 'url("/public/assets/thunderstorm.png")';
                 break;
         
             default:
-               weatherIcon.style.backgroundImage = 'url("../assets/sunny.png")';
+               weatherIcon.style.backgroundImage = 'url("/public/assets/sunny.png")';
                 break;
-        }        
+        }
+        
         
     }
 
     const callAPI = (id) => {
-        fetch(`https://api.weatherapi.com/v1/forecast.json?key=${id}&q=${searchInput.value}&days=1&aqi=no&alerts=no`)
+    fetch(`https://api.weatherapi.com/v1/forecast.json?key=${id}&q=${searchInput.value}&days=1&aqi=no&alerts=no`)
+        .then(response => {
+            if (!response.ok) {
+                snackbar.className = "show";
+                setTimeout(function(){ snackbar.className = snackbar.className.replace("show", ""); }, 3000);
+            }
+            return response.json();
+        })
+        .then(data => {
+            fetch('/save-weather-data', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
             .then(response => {
                 if (!response.ok) {
-                    snackbar.className = "show";
-                    setTimeout(function(){ snackbar.className = snackbar.className.replace("show", ""); }, 3000);
-
+                    throw new Error('Failed to save data to server');
                 }
-                return response.json()
+                return response.json();
             })
-            .then(data => {
+            .then(savedData => {
                 setWeatherDetails(data);
                 animateTemperature();
+                console.log('Data saved successfully:', savedData);
             })
-            .catch(error => console.log(error))
-    }
+            .catch(error => console.error('Error saving data:', error));
+        })
+        .catch(error => console.log(error));
+};
+
+    
 
     searchButton.addEventListener("click", (e) => {
     if (searchInput.value == "") {
@@ -128,7 +144,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     history.addEventListener("click", (e) => {
-        window.location.href = "/public/views/history.html";
+        window.location.href = "/history";
     });
 
     

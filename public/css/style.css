@@ -256,6 +256,9 @@ input:focus {
 }
 
 
+
+
+
 @media screen and (max-width:600px) {
     html, body {
         overflow-x: hidden;
@@ -372,10 +375,12 @@ input:focus {
     background-position: center;
     align-items: center;
     cursor: pointer;
+    margin-bottom: 30px;
   }
   
-    #history:active {
-        transform: scale(0.9);
+    #history:hover {
+        transform: scale(1.1);
+        transition: 0.2s;
         
     }
   
