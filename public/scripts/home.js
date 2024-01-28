@@ -16,6 +16,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const snackbar= document.getElementById("snackbar");
     const history= document.getElementById("history");
 
+
+
     const setWeatherDetails = (data) => {
         desc.innerHTML = data.current.condition.text;
         temperature.innerHTML = data.current.temp_c + "°C";
@@ -26,55 +28,74 @@ document.addEventListener("DOMContentLoaded", function() {
         precipitaton.innerHTML = data.current.precip_mm;
         switch (data.current.condition.text) {
             case 'Sunny':
-               weatherIcon.style.backgroundImage = 'url("/public/assets/sunny.png")';
+               weatherIcon.style.backgroundImage = 'url("../assets/sunny.png")';
                 break;
         
             case 'Clear':
-               weatherIcon.style.backgroundImage = 'url("/public/assets/clear.png")';
+               weatherIcon.style.backgroundImage = 'url("../assets/clear.png")';
                 break;
         
             case 'Partly cloudy':
-               weatherIcon.style.backgroundImage = 'url("/public/assets/partial-cloudy.png")';
+               weatherIcon.style.backgroundImage = 'url("../assets/partial-cloudy.png")';
                 break;
         
             case 'Cloudy':
-               weatherIcon.style.backgroundImage = 'url("/public/assets/cloudy.png")';
+               weatherIcon.style.backgroundImage = 'url("../assets/cloudy.png")';
                 break;
         
             case 'Overcast':
-               weatherIcon.style.backgroundImage = 'url("/public/assets/overcast.png")';
+               weatherIcon.style.backgroundImage = 'url("../assets/overcast.png")';
                 break;
         
             case 'Mist':
             case 'Fog':
-               weatherIcon.style.backgroundImage = 'url("/public/assets/fog.png")';
+               weatherIcon.style.backgroundImage = 'url("../assets/fog.png")';
                 break;
         
             case 'Rain':
             case 'Light rain':
             case 'Moderate rain':
             case 'Heavy rain':
-               weatherIcon.style.backgroundImage = 'url("/public/assets/rainy.png")';
+               weatherIcon.style.backgroundImage = 'url("../assets/rainy.png")';
                 break;
         
             case 'Snow':
             case 'Light snow':
             case 'Moderate snow':
             case 'Heavy snow':
-               weatherIcon.style.backgroundImage = 'url("/public/assets/snow.png")';
+               weatherIcon.style.backgroundImage = 'url("../assets/snow.png")';
                 break;
         
             case 'Thunderstorm':
-               weatherIcon.style.backgroundImage = 'url("/public/assets/thunderstorm.png")';
+               weatherIcon.style.backgroundImage = 'url("../assets/thunderstorm.png")';
                 break;
         
             default:
-               weatherIcon.style.backgroundImage = 'url("/public/assets/sunny.png")';
+               weatherIcon.style.backgroundImage = 'url("../assets/sunny.png")';
                 break;
         }
         
         
     }
+
+    initialLocation = "New Delhi";
+
+
+    const callInitialAPI = (id, location) => {
+        fetch(`https://api.weatherapi.com/v1/forecast.json?key=${id}&q=${location}&days=1&aqi=no&alerts=no`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to fetch initial weather data');
+                }
+                return response.json();
+            })
+            .then(data => {
+                setWeatherDetails(data);
+            })
+            .catch(error => console.error('Error fetching initial weather data:', error));
+    }
+
+    callInitialAPI(id,initialLocation);
 
     const callAPI = (id) => {
     fetch(`https://api.weatherapi.com/v1/forecast.json?key=${id}&q=${searchInput.value}&days=1&aqi=no&alerts=no`)
@@ -108,6 +129,8 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         .catch(error => console.log(error));
 };
+
+    //callAPI(id);
 
     
 
