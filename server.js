@@ -16,7 +16,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Route to save weather data
 app.post('/save-weather-data', (req, res) => {
     const weatherData = req.body;
-
     const newWeatherData = new Climate({
         location: weatherData.location.name,
         country: weatherData.location.country,
@@ -25,7 +24,7 @@ app.post('/save-weather-data', (req, res) => {
         wind: weatherData.current.wind_kph,
         uvindex: weatherData.current.uv,
         precipitation: weatherData.current.precip_mm,
-        weatherIcon: weatherData.current.condition.icon
+        weatherCondition: weatherData.current.condition.text
     });
     newWeatherData.save()
         .then(savedData => res.json(savedData))

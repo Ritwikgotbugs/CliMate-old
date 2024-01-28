@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 mongoose.connect(process.env.Database_URL)
-    .then(() => console.log('Connected to Database'))
+    .then(() => console.log('Connected to the Database'))
     .catch(error => console.error('Error connecting to Database:', error));
 
 // Define Mongoose schema and model
@@ -12,7 +12,7 @@ const climateSchema = new mongoose.Schema({
     wind: { type: Number, required: true },
     uvindex: { type: Number, required: true },
     precipitation: { type: Number, required: true },
-    weatherIcon: { type: String, required: true },
+    weatherCondition: { type: String, required: true }
 }, { timestamps: true });
 
 const Climate = mongoose.model('Climate', climateSchema);

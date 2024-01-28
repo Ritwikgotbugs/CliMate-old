@@ -16,8 +16,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const snackbar= document.getElementById("snackbar");
     const history= document.getElementById("history");
 
-
-
     const setWeatherDetails = (data) => {
         desc.innerHTML = data.current.condition.text;
         temperature.innerHTML = data.current.temp_c + "°C";
@@ -77,26 +75,39 @@ document.addEventListener("DOMContentLoaded", function() {
         
         
     }
+    const initialLocation= "New Delhi";
 
-    initialLocation = "New Delhi";
-
-
-    const callInitialAPI = (id, location) => {
-        fetch(`https://api.weatherapi.com/v1/forecast.json?key=${id}&q=${location}&days=1&aqi=no&alerts=no`)
+    const callInitialAPI = (id) => {
+    fetch(`https://api.weatherapi.com/v1/forecast.json?key=${id}&q=${initialLocation}&days=1&aqi=no&alerts=no`)
+        .then(response => {
+            if (!response.ok) {
+                snackbar.className = "show";
+                setTimeout(function(){ snackbar.className = snackbar.className.replace("show", ""); }, 3000);
+            }
+            return response.json();
+        })
+        .then(data => {
+            fetch('/save-weather-data', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
             .then(response => {
                 if (!response.ok) {
-                    throw new Error('Failed to fetch initial weather data');
+                    throw new Error('Failed to save data to server');
                 }
                 return response.json();
             })
-            .then(data => {
+            .then(savedData => {
                 setWeatherDetails(data);
+                animateTemperature();
             })
-            .catch(error => console.error('Error fetching initial weather data:', error));
-    }
-
-    callInitialAPI(id,initialLocation);
-
+            .catch(error => console.error('Error saving data:', error));
+        })
+        .catch(error => console.log(error));
+};
     const callAPI = (id) => {
     fetch(`https://api.weatherapi.com/v1/forecast.json?key=${id}&q=${searchInput.value}&days=1&aqi=no&alerts=no`)
         .then(response => {
@@ -130,7 +141,7 @@ document.addEventListener("DOMContentLoaded", function() {
         .catch(error => console.log(error));
 };
 
-    //callAPI(id);
+    
 
     
 
