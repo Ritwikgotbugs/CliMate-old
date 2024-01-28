@@ -14,9 +14,11 @@ CliMate
 
 ## Overview
 - [x] - Proper Error Analysis and Handling
-- [x] - HTML, CSS, Vanilla JS
+- [x] - History page to view previously searched locations
+- [x] - MongoDB, NodeJS, ExpressJS
 - [x] - Appealing UI
 - [x] - Responsivity for different screen sizes
+- [ ] - Authentication (under developement)
       
 ## Deployments
 https://one-climate.netlify.app/ (under improvements)
